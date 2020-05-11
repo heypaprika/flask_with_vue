@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello Vue</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="app">
+            <p>{{ message }}</p>
+        </div>
+        <div id="app-2">
+            <span v-bind:title="message">
+                내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+            </span>
+        </div>
+        <div id="app-3">
+            <p v-if="seen">이제 나를 볼 수 있어요</p>
+        </div>
+        <div id="app-4">
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ol>
+        </div>
+        <div id="app-5">
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">메시지 뒤집기</button>
+        </div>
+        <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message">
+        </div>
+{#        <div id="app-7">#}
+{#            <ol>#}
+{#                <todo-item#}
+{#                        v-for="item in list"#}
+{#                        v-bind:key="item.id"#}
+{#                ></todo-item>#}
+{#            </ol>#}
+{#        </div>#}
+        <div id="app-7">
+            <ol>
+                <!--
+                  이제 각 todo-item 에 todo 객체를 제공합니다.
+                  화면에 나오므로, 각 항목의 컨텐츠는 동적으로 바뀔 수 있습니다.
+                  또한 각 구성 요소에 "키"를 제공해야합니다 (나중에 설명 됨).
+                 -->
+                <todo-item
+                        v-for="item in groceryList"
+                        v-bind:todo="item"
+                        v-bind:key="item.id"
+                ></todo-item>
+            </ol>
+        </div>
+        <div id="app-8">
+            <a v-bind:href="link">naver</a>
+        </div>
+        <div id="example">
+            <p>원본 메시지: "{{ message }}"</p>
+            <p>역순으로 표시한 메시지: "{{ reversedMessage_c }}"</p>
+            <p>뒤집힌 메시지 : {{ reversedMessage() }}</p>
+            <p>computed now: {{ now }}</p>
+        </div>
+        <div id="demo">{{ fullName }} {{ firstName }}</div>
+        <div id="watch-example">
+            <p>
+                yes/no 질문을 물어보세요:
+                <input v-model="question">
+            </p>
+            <p>{{ answer }}</p>
+        </div>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+    <script src="static/js/signin.js"></script>
+</html>
