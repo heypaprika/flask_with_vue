@@ -13,9 +13,9 @@ class MyFlask(Flask):
     ))
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
-STATIC_PATH = os.path.join(ROOT_PATH, 'dist')
+STATIC_PATH = os.path.join(ROOT_PATH, 'static')
 
-app = MyFlask(__name__, static_folder=ROOT_PATH, static_url_path='')
+app = MyFlask(__name__, static_folder=STATIC_PATH, static_url_path='')
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 

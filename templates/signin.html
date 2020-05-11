@@ -70,10 +70,37 @@
             </p>
             <p>{{ answer }}</p>
         </div>
-    </body>
+        <div v-if="Math.random() > 0.5">
+            이제 나를 볼 수 있어요
+        </div>
+        <div v-else>
+            이제는 안보입니다
+        </div>
+        <h1 v-if="!loading && ok">Yes</h1>
+        <h1 v-else>No</h1>
+        <div id="app-9">
+            <h2>Todos:</h2>
+            <ol>
+                <li v-for="todo in todos">
+                    <label>
+                        <input type="checkbox"
+                               v-on:change="toggle(todo)"
+                               v-bind:checked="todo.done">
 
+                        <del v-if="todo.done">
+                            {{ todo.text }}
+                        </del>
+                        <span v-else>
+          {{ todo.text }}
+        </span>
+                    </label>
+                </li>
+            </ol>
+        </div>
+
+    </body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
     <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
-    <script src="static/js/signin.js"></script>
+    <script src="(( url_for('static',filename='js/signin.js') ))"></script>
 </html>
